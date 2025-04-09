@@ -1,0 +1,39 @@
+.border-box {
+    border: 1px solid black;
+}
+
+.controlPanel {
+    min-height: 100vh;
+    flex: 12%;
+    
+    /* min-width: 80px; */
+}
+
+.detailForm {
+    flex: 28%;
+
+}
+
+.resumePreview {
+    flex: 57%;
+}
+
+.controlPanel_box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 50vh;
+}
+
+.controlPanel_box_heading{
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.controlPanel_box_buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
