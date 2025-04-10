@@ -8,13 +8,6 @@ font-family: NotoSans, sans-serif
     flex-wrap: wrap;
     gap: 1rem;
 }
-
-.app-wrapper > * {
-    flex-shrink: 0;     /* prevent it from shrinking */
-    flex-grow: 0;   
-    box-sizing: border-box;
-    /* flex: 1 2 auto; */
-  }
   
 @media(max-width: 600px) {
  .app-wrapper {

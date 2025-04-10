@@ -1,7 +1,29 @@
 .task_buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 2rem;
     padding: 0.55rem 1rem;
     font-size: 0.9rem;
     width: 9rem;
 }
 
+.form-section{
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.formm-header{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.title-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
