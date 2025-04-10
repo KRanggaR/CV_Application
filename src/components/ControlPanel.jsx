@@ -23,9 +23,9 @@ function ControlPanel() {
                     </div>
 
                     <div className='controlPanel_box_buttons'>
-                        <Button color="blue" text="Example" Icon={FileUser} onClick={handleFileUserClick} />
-                        <Button color="red" text="Clear" Icon={FilePlus} onClick={handleFilePlusClick} />
-                        <Button color="green" text="Download" Icon={Trash2} onClick={handleTrash2Click} />
+                        <Button color="#447fcd" text="Example" Icon={FileUser} onClick={handleFileUserClick} />
+                        <Button color="#d63031" text="Clear" Icon={FilePlus} onClick={handleFilePlusClick} />
+                        <Button color="#00b894" text="Download" Icon={Trash2} onClick={handleTrash2Click} />
                     </div>
                 </div>
             </div>
