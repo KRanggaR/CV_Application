@@ -19,7 +19,7 @@ function Button({ color = 'red', text = 'click me', Icon = FileUser, onClick }) 
             <button className="task_buttons" style={buttonStyle} onClick={onClick} 
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}>
-                    <Icon size={16} color={color} strokeWidth={1.5} style={{ marginRight: '0.4rem' }}/>
+                    <Icon size={16} color={color} strokeWidth={2.2} style={{ marginRight: '0.4rem' }}/>
                 {text}
             </button>
 
