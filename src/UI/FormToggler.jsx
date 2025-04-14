@@ -20,7 +20,7 @@ function FormToggler({ FormSvg, formTitle = 'Title Demo', children }) {
                     </h3>
 
                     <div>
-                        <ChevronDown size={16} strokeWidth={1.5} />
+                        <ChevronDown className='drop-down-arrow' size={16} strokeWidth={1.5} style={childVisible ? { transform: 'rotate(180deg)'} : {} }/>
                     </div>
                 </div>
                 {

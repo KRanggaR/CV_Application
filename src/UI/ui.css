@@ -26,6 +26,9 @@
     box-shadow: 0 10px 6px #0000001a;
 
 }
+.drop-down-arrow{
+    transition: transform 0.4s;
+}
 
 .formm-header {
     display: flex;
