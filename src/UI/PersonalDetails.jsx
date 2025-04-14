@@ -10,8 +10,8 @@ function PersonalDetails({ formData : {fullname, email, phone, address, summary}
                     <span className='name-field'>Full Name</span>
                     <input
                         className='name-input'
-                        name='fullname'
                         placeholder='Enter name'
+                        name='fullname'
                         value={fullname}
                         onChange={onChange}>
 

@@ -4,6 +4,10 @@ import FormToggler from '../UI/FormToggler'
 import PersonalDetails from '../UI/PersonalDetails'
 import { CircleUserRound, GraduationCap, BriefcaseBusiness } from 'lucide-react';
 import Education from '../UI/Education';
+import Experience from '../UI/Experience';
+
+
+
 
 function DetailForm() {
   const [formData, setFormData] = useState({
@@ -14,35 +18,77 @@ function DetailForm() {
       address: '',
       summary: '',
     },
+    education: [
+      {
+      degree: '',
+      school: '',
+      startDate: '',
+      endDate: '',
+      location: '',
+    }
+  ],
+    experience: [
+      {
+      jobTitle: '',
+      company: '',
+      startDate: '',
+      endDate: '',
+      location: '',
+      description: '',
+    }
+  ],
     
   });
   // console.log(formData);
-  console.log("rendering")
+
 
   const handlePersonalChange = (e) => {
 
-    // const { name, value } = e.target;
-  //   setFormData((prev) => ({
-  //     ...prev,
-  //     personal: {
-  //       ...prev.personal,
-  //       [name]: value,
-  //     },
-  //   }));
-  // };
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      personal: {
+        ...prev.personal,
+        [name]: value,
+      },
+    }));
+  };
+
+  console.log('p;rinting: ', formData.experience);
+  const handleEducationChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      education: {
+        ...prev.education,
+        [name]: value,
+      },
+    }));
+  };
+
+  const handleExperienceChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      experience: {
+        ...prev.experience,
+        [name]: value,
+      },
+    }));
+  };
 
   /*
   formData : 10000 {....}
   formData : 10000 {...., fullname: 'something}
   */
-  console.log("triggered");
+  // console.log("triggered");
   // setFormData({...formData, personal: {...formData.personal, fullname: 'something'}});
 
-  formData.personal.fullname = 'something';
-  setFormData(formData);
+  // formData.personal.fullname = 'something';
+  // setFormData(formData);
   
 
-}
+
 
   return (
     <>
@@ -52,11 +98,11 @@ function DetailForm() {
             <PersonalDetails formData={formData.personal} onChange={handlePersonalChange} />
           </FormToggler>
           <FormToggler FormSvg={GraduationCap} formTitle='Education'>
-            <Education />
+            <Education formData={formData.education} onChange={handleEducationChange}/>
           </FormToggler>
 
           <FormToggler FormSvg={BriefcaseBusiness} formTitle='Experience'>
-
+          <Experience formData={formData.experience} onChange={handleExperienceChange}/>
           </FormToggler>
         </div>
       </div>
