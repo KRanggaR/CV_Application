@@ -10,6 +10,7 @@
     transition: all .2s ease;
 }
 
+
 .task_buttons:hover {
     color: #fff;
 }
@@ -21,6 +22,8 @@
     margin-bottom: 1rem;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
+    background: #fcfcfc;
+    box-shadow: 0 10px 6px #0000001a;
 
 }
 
@@ -37,10 +40,19 @@
     justify-content: center;
     gap: 0.5rem;
 }
-.personal-details{
-    margin-top: 1rem;
+span{
+    padding-top: 1rem;
 }
+
 .personal-details input,
+textarea {
+    margin-top: 0.2rem;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    border: 1px solid grey;
+}
+
+.education-details input,
 textarea {
     margin-top: 0.2rem;
     padding: 0.5rem;
@@ -51,6 +63,8 @@ textarea {
 .nameImage-box,
 .emailPhone-box {
     display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
@@ -68,9 +82,10 @@ textarea {
 }
 
 .name-box,
-.email-box {
+.email-box,
+.phone-box {
     flex-grow: 1;
-    margin-right: 1rem;
+    /* margin-right: 1rem; */
 }
 
 .emailPhone-box {
@@ -80,10 +95,55 @@ textarea {
 }
 
 .name-box,
+.image-box,
 .email-box,
 .phone-box,
 .address-box,
 .summary-box {
     display: flex;
     flex-direction: column;
+}
+
+
+/* Education  Field*/
+
+.education-degree-name{
+    display: block;
+    font-size: 1.3rem;
+}
+
+/* common task buttons in fields education + experience */
+.form-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+.detailForm-task-buttons{
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.4rem 1rem;
+    border-radius: 0.8rem;
+    font-size: 0.9rem;
+    transition: all .2s ease;
+}
+
+.detailForm-task-buttons:hover{
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.save-cancel-btn{
+    display: flex;
+    gap: 1rem;
+}
+
+.delete-task-btn{
+border-color: rgb(214, 48, 49);
+}
+
+.save-task-btn{
+border-color: blue;
 }

@@ -1,10 +1,11 @@
 .border-box {
-    border: 1px solid black;
+    border: 1.5px solid #9b9b9b;
 }
 
 .controlPanel {
     min-height: 100vh;
     flex: 12%;
+    box-shadow: 7px 0 6px #0000001a;
     
     /* min-width: 80px; */
 }
@@ -38,4 +39,6 @@
     flex-direction: column;
     gap: 0.7rem;
 }
-
+.resumePreview{
+    box-shadow: -3px 0 6px #0000001a;
+}

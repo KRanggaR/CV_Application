@@ -1,25 +1,26 @@
 import React, {useState} from 'react'
 import '../UI/ui.css'
-import { FileUser, FilePlus, Trash2 } from 'lucide-react';
+import { FileUser } from 'lucide-react';
 
 // eslint-disable-next-line no-unused-vars
-function Button({ color = 'red', text = 'click me', Icon = FileUser, onClick }) {
+function Button({ color = 'red', text = 'click me', Icon = FileUser, onClick, className}) {
     const [hovered, setHovered] = useState(false);
     const buttonStyle = {
         border: `2px solid ${color}`,
-        color: color,
+        color: hovered ? `white` : `${color}`, //text color
         text: text,
         borderColor: color,
-        backgroundColor: hovered ? `${color}60` : 'transparent',
+        backgroundColor: hovered ? `${color}` : 'transparent',
+        cursor: hovered ? `pointer` : `arrow`,
     };
 
 
     return (
         <div>
-            <button className="task_buttons" style={buttonStyle} onClick={onClick} 
+            <button className={className} style={buttonStyle} onClick={onClick} 
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}>
-                    <Icon size={16} color={color} strokeWidth={2.2} style={{ marginRight: '0.4rem' }}/>
+                    <Icon size={16} color={buttonStyle.color} strokeWidth={2.2} style={{ marginRight: '0.4rem' }}/>
                 {text}
             </button>
 
