@@ -3,10 +3,9 @@ import '../styles/defaultView.css';
 import FormToggler from '../UI/FormToggler'
 import PersonalDetails from '../UI/PersonalDetails'
 import { CircleUserRound, GraduationCap, BriefcaseBusiness } from 'lucide-react';
+import CarrerDetailsContainer from '../UI/CarrerDetailsContainer';
 import Education from '../UI/Education';
 import Experience from '../UI/Experience';
-
-
 
 
 function DetailForm() {
@@ -19,25 +18,12 @@ function DetailForm() {
       summary: '',
     },
     education: [
-      {
-      degree: '',
-      school: '',
-      startDate: '',
-      endDate: '',
-      location: '',
-    }
-  ],
+
+    ],
     experience: [
-      {
-      jobTitle: '',
-      company: '',
-      startDate: '',
-      endDate: '',
-      location: '',
-      description: '',
-    }
-  ],
-    
+
+    ],
+
   });
   // console.log(formData);
 
@@ -54,28 +40,85 @@ function DetailForm() {
     }));
   };
 
-  console.log('p;rinting: ', formData.experience);
-  const handleEducationChange = (e) => {
+
+
+
+  // onChange Event to store values to state
+
+  const handleEducationChange = (index, e) => {
+    console.log(formData)
     const { name, value } = e.target;
+    setFormData((prev) => {
+      const updatedEducation = [...prev.education];
+      updatedEducation[index][name] = value;
+      return {
+        ...prev,
+        education: updatedEducation,
+      };
+    });
+  };
+
+  const handleExperienceChange = (index, e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => {
+      const updatedExperience = [...prev.experience];
+      updatedExperience[index][name] = value;
+      return {
+        ...prev,
+        experience: updatedExperience,
+      };
+    });
+  };
+
+  // Adding section on every add button clicked in education/experience
+  const addEducation = () => {
     setFormData((prev) => ({
       ...prev,
-      education: {
+      education: [
         ...prev.education,
-        [name]: value,
-      },
+        {
+          degree: '',
+          school: '',
+          startDate: '',
+          endDate: '',
+          location: '',
+        },
+      ],
     }));
   };
 
-  const handleExperienceChange = (e) => {
-    const { name, value } = e.target;
+  const addExperience = () => {
     setFormData((prev) => ({
       ...prev,
-      experience: {
+      experience: [
         ...prev.experience,
-        [name]: value,
-      },
+        {
+          jobTitle: '',
+          company: '',
+          startDate: '',
+          endDate: '',
+          location: '',
+          description: '',
+        },
+      ],
     }));
   };
+
+
+  // Delete function
+  const deleteEducation = (index) => {
+    setFormData((prev) => ({
+      ...prev,
+      education: prev.education.filter((_, i) => i !== index),
+    }));
+  }
+
+  const deleteExperience = (index) => {
+    setFormData((prev) => ({
+      ...prev,
+      experience: prev.experience.filter((_, i) => i !== index),
+    }));
+  }
 
   /*
   formData : 10000 {....}
@@ -86,8 +129,6 @@ function DetailForm() {
 
   // formData.personal.fullname = 'something';
   // setFormData(formData);
-  
-
 
 
   return (
@@ -97,12 +138,27 @@ function DetailForm() {
           <FormToggler FormSvg={CircleUserRound} formTitle='Personal Details'>
             <PersonalDetails formData={formData.personal} onChange={handlePersonalChange} />
           </FormToggler>
-          <FormToggler FormSvg={GraduationCap} formTitle='Education'>
-            <Education formData={formData.education} onChange={handleEducationChange}/>
+
+          <FormToggler FormSvg={GraduationCap} formTitle='Education' >
+            <CarrerDetailsContainer
+              buttonText='Education'
+              onAdd={addEducation}>
+              {/* <Education educationData={formData.education} onChange={handleEducationChange} onDelete={deleteEducation}/> */}
+              {
+                formData.education.map(( edu, index ) => <Education detail={edu} key={index} id={index} onChange={handleEducationChange} onDelete={deleteEducation}/>)
+              }
+            </CarrerDetailsContainer>
           </FormToggler>
 
           <FormToggler FormSvg={BriefcaseBusiness} formTitle='Experience'>
-          <Experience formData={formData.experience} onChange={handleExperienceChange}/>
+            <CarrerDetailsContainer
+              buttonText='Experience'
+              onAdd={addExperience}>
+              {/* <Experience experienceData={formData.experience} onChange={handleExperienceChange} onDelete={deleteExperience} /> */}
+              {
+                formData.experience.map(( exp, index ) => <Experience detail={exp} key={index} id={index} onChange={handleExperienceChange} onDelete={deleteExperience} />)
+              }
+            </CarrerDetailsContainer>
           </FormToggler>
         </div>
       </div>

@@ -2,18 +2,17 @@ import React from 'react'
 import { Trash2, Save, X } from 'lucide-react';
 import '../UI/ui.css'
 import Button from '../UI/Button'
-function DetailFormButtons() {
+function DetailFormButtons({onDelete, onSave}) {
 
     return (
         <>
             <div className='form-buttons'>
                 <div>
-                    <Button type={'small'} color="#d63031" text="Delete" Icon={Trash2} />
+                    <Button type={'small'} color="#d63031" text="Delete" Icon={Trash2} onClick={onDelete}/>
                 </div>
 
                 <div className='save-cancel-btn'>
-                    <Button type={'small'} color="#447fcd" text="Save" Icon={Save} />
-                    <Button type={'small'} color="#000000" text="Cancel" Icon={X} />
+                    <Button type={'small'} color="#00b894" text="Save" Icon={Save} onClick={onSave}/>
                 </div>
             </div>
         </>

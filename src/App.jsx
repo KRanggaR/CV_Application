@@ -11,6 +11,7 @@ function App() {
         <ControlPanel />
         <DetailForm />
         <ResumePreview />
+        
       </div>
     </>
   )
