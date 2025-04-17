@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import '../styles/defaultView.css';
 import FormToggler from '../UI/FormToggler'
 import PersonalDetails from '../UI/PersonalDetails'
@@ -8,24 +8,9 @@ import Education from '../UI/Education';
 import Experience from '../UI/Experience';
 
 
-function DetailForm() {
-  const [formData, setFormData] = useState({
-    personal: {
-      fullname: '',
-      email: '',
-      phone: '',
-      address: '',
-      summary: '',
-    },
-    education: [
-
-    ],
-    experience: [
-
-    ],
-
-  });
-  // console.log(formData);
+function DetailForm({formData, setFormData}) {
+ 
+  console.log(formData);
 
 
   const handlePersonalChange = (e) => {
