@@ -73,6 +73,8 @@ function ControlPanel({ setFormData}) {
         }));
       };
 
+      
+
     const handleDownload = () => {
         window.location.href = "https://www.google.com";
     };
