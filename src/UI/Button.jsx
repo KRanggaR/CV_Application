@@ -8,6 +8,8 @@ function Button({ color = 'red', text = 'click me', Icon = FileUser, onClick, ty
     const buttonStyle = {
         border: `2px solid ${color}`,
         color: hovered ? `white` : `${color}`, //text color
+        fontSize: '18px',
+        fontWeight: '500',
         text: text,
         borderColor: color,
         backgroundColor: hovered ? `${color}` : 'transparent',
@@ -20,7 +22,7 @@ function Button({ color = 'red', text = 'click me', Icon = FileUser, onClick, ty
             <button className={type === 'large' ? 'task_buttons' : 'detailForm-task-buttons'} type={type} style={buttonStyle} onClick={onClick} 
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}>
-                    <Icon size={16} color={buttonStyle.color} strokeWidth={2.2} style={{ marginRight: '0.4rem' }}/>
+                    <Icon size={23} color={buttonStyle.color} strokeWidth={1.5} style={{ marginRight: '0.4rem' }}/>
                 {text}
             </button>
 
