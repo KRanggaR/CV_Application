@@ -67,6 +67,7 @@ function DetailForm({formData, setFormData}) {
           startDate: '',
           endDate: '',
           location: '',
+          formVisible: true,
         },
       ],
     }));

@@ -3,7 +3,7 @@ import '../UI/ui.css'
 import DetailFormButtons from './DetailFormButtons'
 
 function Education({ detail : {degree, school,location, endDate, startDate}, id, onChange, onDelete }) {
-const [formVisible, setFormVisible] = useState(true);
+const [formVisible, setFormVisible] = useState(false);
 const toggleFormVisibility = ()=> {
     setFormVisible(!formVisible);
 }

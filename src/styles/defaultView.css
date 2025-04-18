@@ -4,21 +4,22 @@
 
 .controlPanel {
     min-height: 100vh;
-    flex: 12%;
+    flex: 10%;
     box-shadow: 7px 0 6px #0000001a;
     
     /* min-width: 80px; */
 }
 
 .detailForm {
-    flex: 28%;
+    margin-top: 0.6rem;
+    flex: 30%;
     height: 100vh;
     overflow-y: auto
 
 }
 
-.resumePreview {
-    flex: 57%;
+.pdf-content {
+    flex: 52%;
 }
 
 .controlPanel_box{
@@ -39,6 +40,8 @@
     flex-direction: column;
     gap: 0.7rem;
 }
-.resumePreview{
-    box-shadow: -3px 0 6px #0000001a;
+.pdf-content{
+    margin: 1rem;
+    box-shadow: 3px 1px 21px #00000048;
+    border-radius: 0.3rem;
 }
