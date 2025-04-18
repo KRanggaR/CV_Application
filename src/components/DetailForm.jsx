@@ -133,7 +133,7 @@ function DetailForm({formData, setFormData}) {
               >
               {/* <Education educationData={formData.education} onChange={handleEducationChange} onDelete={deleteEducation}/> */}
               {
-                formData.education.map(( edu, index ) => <Education detail={edu} key={index} id={index} onChange={handleEducationChange} onDelete={deleteEducation} newForm={edu.newForm}/>)
+                formData.education.map(( edu, index ) => <Education detail={edu} key={index} id={index} onChange={handleEducationChange} onDelete={deleteEducation} newForm={edu.newForm} setFormData={setFormData}/>)
               }
             </CarrerDetailsContainer>
           </FormToggler>
