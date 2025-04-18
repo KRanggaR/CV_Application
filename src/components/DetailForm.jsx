@@ -67,7 +67,7 @@ function DetailForm({formData, setFormData}) {
           startDate: '',
           endDate: '',
           location: '',
-          formVisible: true,
+          newForm: 'true',
         },
       ],
     }));
@@ -85,6 +85,7 @@ function DetailForm({formData, setFormData}) {
           endDate: '',
           location: '',
           description: '',
+          newForm: 'true'
         },
       ],
     }));
@@ -128,10 +129,11 @@ function DetailForm({formData, setFormData}) {
           <FormToggler FormSvg={GraduationCap} formTitle='Education' >
             <CarrerDetailsContainer
               buttonText='Education'
-              onAdd={addEducation}>
+              onAdd={addEducation}
+              >
               {/* <Education educationData={formData.education} onChange={handleEducationChange} onDelete={deleteEducation}/> */}
               {
-                formData.education.map(( edu, index ) => <Education detail={edu} key={index} id={index} onChange={handleEducationChange} onDelete={deleteEducation}/>)
+                formData.education.map(( edu, index ) => <Education detail={edu} key={index} id={index} onChange={handleEducationChange} onDelete={deleteEducation} newForm={edu.newForm}/>)
               }
             </CarrerDetailsContainer>
           </FormToggler>
