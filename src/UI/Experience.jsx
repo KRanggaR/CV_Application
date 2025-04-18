@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import '../UI/ui.css'
 import DetailFormButtons from './DetailFormButtons'
 
-function Experience({ detail: { jobTitle, company, startDate, endDate, location, description }, id, onChange, onDelete }) {
-    const [formVisible, setFormVisible] = useState(true);
+function Experience({ detail: { jobTitle, company, startDate, endDate, location, description }, id, onChange, onDelete, newForm, onCloseNewForm }) {
+    const [formVisible, setFormVisible] = useState(false);
     const toggleFormVisibility = () => {
         setFormVisible(!formVisible);
     }
@@ -11,7 +11,7 @@ function Experience({ detail: { jobTitle, company, startDate, endDate, location,
     return (
         <>
             {
-                formVisible ?
+                (formVisible || newForm) ?
 
                     <div className='education-details' >
                         <div>
@@ -85,7 +85,14 @@ function Experience({ detail: { jobTitle, company, startDate, endDate, location,
                             </textarea>
                         </div>
 
-                        <DetailFormButtons onDelete={() => onDelete(id)} onSave={() => setFormVisible(false)}/>
+                        <DetailFormButtons onDelete={() => onDelete(id)} 
+                            onSave={() => {
+                                setFormVisible(false)
+                                newForm=false;
+                                onCloseNewForm(id);
+                                }
+                            }
+                        />
                     </div>
 
                     :

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import '../UI/ui.css'
 import DetailFormButtons from './DetailFormButtons'
 
-function Education({ detail : {degree, school,location, endDate, startDate}, id, onChange, onDelete, newForm, setFormData }) {
+function Education({ detail : {degree, school,location, endDate, startDate}, id, onChange, onDelete, newForm, onCloseNewForm}) {
 const [formVisible, setFormVisible] = useState(false);
 const toggleFormVisibility = ()=> {
     setFormVisible(true);
@@ -87,10 +87,11 @@ const toggleFormVisibility = ()=> {
                     <DetailFormButtons onDelete={() => onDelete(id)} 
                         onSave={()=>{
                             setFormVisible(false);
-                            
-                            // newForm=false;    
-                            
-                        }}/>
+                            newForm=false;
+                            onCloseNewForm(id);        
+                            }
+                        }
+                    />
                 </div>
 
                 :

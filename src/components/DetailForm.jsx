@@ -116,7 +116,20 @@ function DetailForm({formData, setFormData}) {
 
   // formData.personal.fullname = 'something';
   // setFormData(formData);
-
+  const handleCloseNewForm = (index) => {
+    setFormData(prev => ({
+      ...prev,
+      education: prev.education.map((item, i) =>
+        i === index ? { ...item, newForm: false } : item
+      )
+    }));
+    setFormData(prev => ({
+      ...prev,
+      experience: prev.experience.map((item, i) =>
+        i === index ? { ...item, newForm: false } : item
+      )
+    }));
+  };
 
   return (
     <>
@@ -133,7 +146,7 @@ function DetailForm({formData, setFormData}) {
               >
               {/* <Education educationData={formData.education} onChange={handleEducationChange} onDelete={deleteEducation}/> */}
               {
-                formData.education.map(( edu, index ) => <Education detail={edu} key={index} id={index} onChange={handleEducationChange} onDelete={deleteEducation} newForm={edu.newForm} setFormData={setFormData}/>)
+                formData.education.map(( edu, index ) => <Education detail={edu} key={index} id={index} onChange={handleEducationChange} onDelete={deleteEducation} newForm={edu.newForm} onCloseNewForm={handleCloseNewForm}/>)
               }
             </CarrerDetailsContainer>
           </FormToggler>
@@ -144,7 +157,7 @@ function DetailForm({formData, setFormData}) {
               onAdd={addExperience}>
               {/* <Experience experienceData={formData.experience} onChange={handleExperienceChange} onDelete={deleteExperience} /> */}
               {
-                formData.experience.map(( exp, index ) => <Experience detail={exp} key={index} id={index} onChange={handleExperienceChange} onDelete={deleteExperience} />)
+                formData.experience.map(( exp, index ) => <Experience detail={exp} key={index} id={index} onChange={handleExperienceChange} onDelete={deleteExperience} newForm={exp.newForm} onCloseNewForm={handleCloseNewForm}/>)
               }
             </CarrerDetailsContainer>
           </FormToggler>
