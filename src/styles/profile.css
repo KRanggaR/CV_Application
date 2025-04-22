@@ -1,0 +1,71 @@
+  .pdf-content {
+    
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      
+      border-radius: 8px;
+  }
+.cv-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    border-bottom: 2px solid #0084dc;
+    padding-bottom: 2rem;
+}
+  .cv-header-h1 {
+      font-size: 1.5rem;
+      color: #555;
+  }
+
+  .cv-header-h2 {
+      font-size: 2rem;
+      margin: 0.5rem 0;
+      color: #222;
+  }
+
+.flex-text{
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+}
+  .cv-header-p {
+      color: #666;
+      font-size: 0.95rem;
+  }
+
+  .cv-summary, .cv-education, .cv-experience {
+      margin-top: 2rem;
+  }
+
+  .cv-title-header {
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+      color: #007acc;
+      font-weight: 700;
+  }
+
+  .edu-entry,
+  .exp-entry {
+      margin-bottom: 1.5rem;
+  }
+
+  .edu-exp-entry {
+      font-weight: bold;
+  }
+
+  
+  .status-fields {
+      font-size: 0.9rem;
+      color: #666;
+  }
+
+  .info-fields{ 
+      font-size: 1rem;
+  }
+
+  .text-items{
+    margin-top: 0.3rem;
+  }

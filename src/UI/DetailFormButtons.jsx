@@ -1,6 +1,6 @@
 import React from 'react'
 import { Trash2, Save, X } from 'lucide-react';
-import '../UI/ui.css'
+import "../styles/ui.css"
 import Button from '../UI/Button'
 function DetailFormButtons({onDelete, onSave}) {
 

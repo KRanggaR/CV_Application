@@ -8,9 +8,7 @@ import Education from '../UI/Education';
 import Experience from '../UI/Experience';
 
 
-function DetailForm({formData, setFormData}) {
- 
-  console.log(formData);
+function DetailForm({formData, setFormData, addImage, setImage}) {
 
 
   const handlePersonalChange = (e) => {
@@ -67,6 +65,7 @@ function DetailForm({formData, setFormData}) {
           startDate: '',
           endDate: '',
           location: '',
+          newForm: 'true',
         },
       ],
     }));
@@ -84,6 +83,7 @@ function DetailForm({formData, setFormData}) {
           endDate: '',
           location: '',
           description: '',
+          newForm: 'true'
         },
       ],
     }));
@@ -114,23 +114,40 @@ function DetailForm({formData, setFormData}) {
 
   // formData.personal.fullname = 'something';
   // setFormData(formData);
-
+  const handleCloseNewForm = (index) => {
+    setFormData(prev => ({
+      ...prev,
+      education: prev.education.map((item, i) =>
+        i === index ? { ...item, newForm: false } : item
+      )
+    }));
+    setFormData(prev => ({
+      ...prev,
+      experience: prev.experience.map((item, i) =>
+        i === index ? { ...item, newForm: false } : item
+      )
+    }));
+  };
 
   return (
     <>
       <div className='detailForm '>
         <div>
           <FormToggler FormSvg={CircleUserRound} formTitle='Personal Details'>
-            <PersonalDetails formData={formData.personal} onChange={handlePersonalChange} />
+            <PersonalDetails formData={formData.personal} 
+                            onChange={handlePersonalChange} 
+                            addImage={addImage}
+                            setImage={setImage}/>
           </FormToggler>
 
           <FormToggler FormSvg={GraduationCap} formTitle='Education' >
             <CarrerDetailsContainer
               buttonText='Education'
-              onAdd={addEducation}>
+              onAdd={addEducation}
+              >
               {/* <Education educationData={formData.education} onChange={handleEducationChange} onDelete={deleteEducation}/> */}
               {
-                formData.education.map(( edu, index ) => <Education detail={edu} key={index} id={index} onChange={handleEducationChange} onDelete={deleteEducation}/>)
+                formData.education.map(( edu, index ) => <Education detail={edu} key={index} id={index} onChange={handleEducationChange} onDelete={deleteEducation} newForm={edu.newForm} onCloseNewForm={handleCloseNewForm}/>)
               }
             </CarrerDetailsContainer>
           </FormToggler>
@@ -141,7 +158,7 @@ function DetailForm({formData, setFormData}) {
               onAdd={addExperience}>
               {/* <Experience experienceData={formData.experience} onChange={handleExperienceChange} onDelete={deleteExperience} /> */}
               {
-                formData.experience.map(( exp, index ) => <Experience detail={exp} key={index} id={index} onChange={handleExperienceChange} onDelete={deleteExperience} />)
+                formData.experience.map(( exp, index ) => <Experience detail={exp} key={index} id={index} onChange={handleExperienceChange} onDelete={deleteExperience} newForm={exp.newForm} onCloseNewForm={handleCloseNewForm}/>)
               }
             </CarrerDetailsContainer>
           </FormToggler>

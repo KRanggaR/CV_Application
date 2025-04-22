@@ -1,8 +1,18 @@
-import React from 'react'
-import '../UI/ui.css'
+import React, { useRef } from 'react'
+import "../styles/ui.css";
 import { Camera } from 'lucide-react';
 
-function PersonalDetails({ formData : {fullname, email, phone, address, summary}, onChange }) {
+function PersonalDetails({ formData: { fullname, email, phone, address, summary }, onChange, setImage }) {
+    const fileInputRef = useRef();
+    const handleFileChange = (event) => {
+        const selectedFile = event.target.files[0];
+        if (selectedFile) {
+            const imageURL = URL.createObjectURL(selectedFile);
+            setImage(imageURL);
+            console.log('this image', imageURL);
+        }
+    };
+
     return (
         <div className='personal-details'>
             <div className='nameImage-box '>
@@ -19,10 +29,18 @@ function PersonalDetails({ formData : {fullname, email, phone, address, summary}
                 </div>
                 <div className='image-box'>
                     <span className='image-field' >Photo</span>
-                    <button className="image-button">
+                    <button className="image-button" onClick={() => fileInputRef.current.click()}>
                         <Camera size={16} strokeWidth={1.5} />
                         Upload
                     </button>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        ref={fileInputRef}
+                        onChange={handleFileChange}
+                        style={{ display: 'none' }}
+                    />
+
                 </div>
             </div>
 

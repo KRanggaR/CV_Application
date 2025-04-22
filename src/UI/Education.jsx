@@ -1,18 +1,18 @@
 import React, {useState} from 'react'
-import '../UI/ui.css'
+import "../styles/ui.css"
 import DetailFormButtons from './DetailFormButtons'
 
-function Education({ detail : {degree, school,location, endDate, startDate}, id, onChange, onDelete }) {
-const [formVisible, setFormVisible] = useState(true);
+function Education({ detail : {degree, school,location, endDate, startDate}, id, onChange, onDelete, newForm, onCloseNewForm}) {
+const [formVisible, setFormVisible] = useState(false);
 const toggleFormVisibility = ()=> {
-    setFormVisible(!formVisible);
+    setFormVisible(true);
 }
 
 // console.log({formVisible});
     return (
         <>
             {
-            formVisible? 
+            (formVisible || newForm)? 
 
             <div className='education-details'>
 
@@ -60,7 +60,7 @@ const toggleFormVisibility = ()=> {
                             </input>
                         </div>
                         <div className='phone-box'>
-                            <span className='endDate-span'>End Date</span>
+                            <span className='phone-field'>End Date</span>
                             <input className='phone-input'
                                 name='endDate'
                                 placeholder='2024'
@@ -84,7 +84,14 @@ const toggleFormVisibility = ()=> {
                         </input>
                     </div>
 
-                    <DetailFormButtons onDelete={() => onDelete(id)} onSave={()=>setFormVisible(false)}/>
+                    <DetailFormButtons onDelete={() => onDelete(id)} 
+                        onSave={()=>{
+                            setFormVisible(false);
+                            newForm=false;
+                            onCloseNewForm(id);        
+                            }
+                        }
+                    />
                 </div>
 
                 :

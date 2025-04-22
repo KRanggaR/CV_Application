@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../UI/ui.css';
+import "../styles/ui.css";
 import { ChevronDown } from 'lucide-react';
 
 function FormToggler({ FormSvg, formTitle = 'Title Demo', children }) {

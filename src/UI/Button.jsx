@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import '../UI/ui.css'
+import "../styles/ui.css"
 import { FileUser } from 'lucide-react';
 
 // eslint-disable-next-line no-unused-vars
