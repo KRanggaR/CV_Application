@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/defaultView.css';
 import Button from '../UI/Button.jsx';
 import { FileUser, FilePlus, Trash2 } from 'lucide-react';
 
 function ControlPanel({ setFormData, setImage, handleDownloadPdf }) {
-
+useEffect(()=>{
+    handleExample();
+},[])
     const handleExample = () => {
         setImage('src/assets/profile.jpg');
         setFormData((prev) => ({
